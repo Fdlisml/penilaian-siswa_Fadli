@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #454e6a;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    flex: 1;
+    padding: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1vh;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-item {
+    z-index: -10;
+    overflow: hidden;
+}

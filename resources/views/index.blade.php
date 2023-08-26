@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-
+@section('content')
     <div class="header">
         {{-- <img src="/img/audi.jpg" width="100%" height="40%" alt=""> --}}
     </div>
@@ -26,9 +17,9 @@
         <fieldset>
             <legend></legend>
             <center>
-                <button onclick="tampilkan_login_siswa()" class="button button1">Siswa</button>
-                <button onclick="tampilkan_login_guru()" class="button button-info">Guru</button>
-                <button onclick="tampilkan_login_admin()" class="button button-danger">Admin</button>
+                <button onclick="tampilkan_login_siswa()" class="btn btn-success">Siswa</button>
+                <button onclick="tampilkan_login_guru()" class="btn btn-warning">Guru</button>
+                <button onclick="tampilkan_login_admin()" class="btn btn-danger">Admin</button>
             </center>
 
             <br>
@@ -51,7 +42,7 @@
                         </tr>
                     </table>
                     <center>
-                        <button class="button button-success" type="submit" name="button">Login</button>
+                        <button class="btn btn-primary" type="submit" name="button">Login</button>
                     </center>
                 </form>
             </div>
@@ -72,7 +63,7 @@
                         </tr>
                     </table>
                     <center>
-                        <button class="button button-success" type="submit" name="button">Login</button>
+                        <button class="btn btn-primary" type="submit" name="button">Login</button>
                     </center>
                 </form>
             </div>
@@ -93,7 +84,7 @@
                         </tr>
                     </table>
                     <center>
-                        <button class="button button-success" type="submit" name="button">Login</button>
+                        <button class="btn btn-primary" type="submit" name="button">Login</button>
                     </center>
                 </form>
             </div>
@@ -118,17 +109,8 @@
         </center>
         <div class="gallery">
             <img src="/gambar/g2.jpg" alt="">
-            <div class="deskripsi">SMK BISA 2022</div>
+            <div class="deskripsi">SMK BISA {{ date('Y') }}</div>
         </div>
     </div>
-
-    <div class="footer">
-        <center>
-            <p>&copy; 2022 - <strong>Fadli Ismail</strong></p>
-        </center>
-    </div>
-</body>
-
-</html>
-
-<script src="/js/script.js"></script>
+    <script src="/js/script.js"></script>
+@endsection

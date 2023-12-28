@@ -5,7 +5,7 @@
         <h2>TAMBAH DATA NILAI</h2>
         <form action="/nilai/update/{{ $nilai->id }}" method="post">
             @csrf
-            <table width="50%">
+            <table class="table-data" width="50%">
                 <tr>
                     <td width="25%">GURU MAPEL</td>
                     <td width="25%">

@@ -5,7 +5,7 @@
         <h2>TAMBAH DATA MAPEL</h2>
         <form action="/mapel/store" method="post">
             @csrf
-            <table width="50%">
+            <table class="table-data" width="50%">
                 <tr>
                     <td width="25%">MATA PELAJARAN</td>
                     <td width="25%"><input type="text" name="nama_mapel"></td>

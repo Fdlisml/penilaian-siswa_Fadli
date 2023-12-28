@@ -5,7 +5,7 @@
         <h2>TAMBAH DATA GURU</h2>
         <form action="/guru/store" method="post">
             @csrf
-            <table width="50%">
+            <table class="table-data" width="50%">
                 <tr>
                     <td width="25%">NIP</td>
                     <td width="25%"><input type="text" class="" name="nip" id=""></td>

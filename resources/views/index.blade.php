@@ -33,7 +33,7 @@
                 <br>
                 <form action="/login_siswa" method="post">
                     @csrf
-                    <table>
+                    <table class="table-data">
                         <tr>
                             <td width="25%"><strong>NIS</strong></td>
                             <td width="25%"><input type="text" name="nis" maxlength="25" required></td>
@@ -53,7 +53,7 @@
                 <br>
                 <form action="/login_guru" method="post">
                     @csrf
-                    <table>
+                    <table class="table-data">
                         <tr>
                             <td width="25%"><strong>NIP</strong></td>
                             <td width="25%"><input type="text" name="nip" maxlength="25" required></td>
@@ -73,7 +73,7 @@
                 <br>
                 <form action="/login_admin" method="post">
                     @csrf
-                    <table>
+                    <table class="table-data">
                         <tr>
                             <td width="25%"><strong>Kode Admin</strong></td>
                             <td width="25%"><input type="text" name="kode_admin" maxlength="25" required></td>

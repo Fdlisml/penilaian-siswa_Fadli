@@ -5,7 +5,7 @@
         <h2>EDIT DATA GURU</h2>
         <form action="/guru/update/{{ $guru->id }}" method="post">
             @csrf
-            <table width="50%">
+            <table class="table-data" width="50%">
                 <tr>
                     <td width="25%">NIP</td>
                     <td width="25%"><input type="text" name="nip" value="{{ $guru->nip }}"></td>

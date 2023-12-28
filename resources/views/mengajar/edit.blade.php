@@ -5,7 +5,7 @@
         <h2>EDIT DATA MENGAJAR</h2>
         <form action="/mengajar/update/{{ $mengajar->id }}" method="post">
             @csrf
-            <table width="50%">
+            <table class="table-data" width="50%">
                 <tr>
                     <td width="25%">GURU</td>
                     <td width="25%">

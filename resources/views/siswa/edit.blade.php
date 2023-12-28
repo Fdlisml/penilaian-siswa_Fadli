@@ -5,7 +5,7 @@
         <h2>EDIT DATA SISWA</h2>
         <form action="/siswa/update/{{ $siswa->id }}" method="post">
             @csrf
-            <table width="50%">
+            <table class="table-data" width="50%">
                 <tr>
                     <td width="25%">NIS</td>
                     <td width="25%"><input type="text" class="" name="nis" value="{{ $siswa->nis }}"></td>

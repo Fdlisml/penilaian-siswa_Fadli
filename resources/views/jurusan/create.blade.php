@@ -5,7 +5,7 @@
         <h2>TAMBAH DATA JURUSAN</h2>
         <form action="/jurusan/store" method="post">
             @csrf
-            <table width="50%">
+            <table class="table-data" width="50%">
                 <tr>
                     <td width="25%">NAMA JURUSAN</td>
                     <td width="25%"><input type="text" name="nama_jurusan" id=""></td>

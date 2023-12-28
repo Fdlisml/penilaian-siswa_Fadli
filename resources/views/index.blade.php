@@ -1,31 +1,33 @@
-@extends('layout.main')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laract Penilaian Siswa</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+
+<body>
     <div class="header">
-        {{-- <img src="/img/audi.jpg" width="100%" height="40%" alt=""> --}}
+        <img src="{{ asset('img/header.jpg') }}" width="100%" height="40%" alt="">
     </div>
-
     <div class="menu">
         <b>
             <a href="/" class="active">Home</a>
-            <a href="guru">Guru</a>
-            <a href="home">home</a>
         </b>
     </div>
-
-    <div class="kiri">
+    <div class="kiri-atas">
         <fieldset>
-            <legend></legend>
             <center>
                 <button onclick="tampilkan_login_siswa()" class="btn btn-success">Siswa</button>
                 <button onclick="tampilkan_login_guru()" class="btn btn-warning">Guru</button>
                 <button onclick="tampilkan_login_admin()" class="btn btn-danger">Admin</button>
             </center>
-
             <br>
             Pilih login yang sesuai dengan posisi anda
             <hr>
-
             <div id="login_siswa" style="display: none">
                 <strong>Login Siswa</strong>
                 <br>
@@ -46,7 +48,6 @@
                     </center>
                 </form>
             </div>
-
             <div id="login_guru" style="display: none">
                 <strong>Login Guru</strong>
                 <br>
@@ -67,7 +68,6 @@
                     </center>
                 </form>
             </div>
-
             <div id="login_admin" style="display: none">
                 <strong>Login Admin</strong>
                 <br>
@@ -90,7 +90,6 @@
             </div>
         </fieldset>
     </div>
-
     <div class="kanan">
         <center>
             <h1>
@@ -101,16 +100,25 @@
         </center>
     </div>
 
-    <div class="kirikuyy">
+    <div class="kiri-bawah">
         <center>
-            <p class="mar">
-                <strong>Gallery</strong>
-            </p>
+            <b>
+                <p class="mar">Gallery</p>
+                <div class="gallery">
+                    <img src={{ asset('img/g2.jpg') }} alt="" />
+                    <div class="deskripsi">SMK BISA {{ date('Y') }}</div>
+                </div>
+            </b>
         </center>
-        <div class="gallery">
-            <img src="/gambar/g2.jpg" alt="">
-            <div class="deskripsi">SMK BISA {{ date('Y') }}</div>
-        </div>
     </div>
+
+    <div class="footer">
+        <center>
+            <p class="mar">2023 - LSP & UJIKOM</p>
+        </center>
+    </div>
+    
     <script src="/js/script.js"></script>
-@endsection
+</body>
+
+</html>

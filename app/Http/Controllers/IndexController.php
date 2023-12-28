@@ -21,7 +21,7 @@ class IndexController extends Controller
 
     public function loginAdmin(Request $request)
     {
-        $administratior = Administrator::where('kode_admin', $request->kode_admin)->first();
+        $administratior = Administrator::where('id_admin', $request->kode_admin)->first();
 
         if (!$administratior) {
             return back();

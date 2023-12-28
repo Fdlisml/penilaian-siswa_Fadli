@@ -46,6 +46,7 @@ class KelasController extends Controller
             'nama_kelas' => ['required'],
             'jurusan_id' => ['required']
         ]);
+
         Kelas::create($data_kelas);
         return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil di Tambah');
     }

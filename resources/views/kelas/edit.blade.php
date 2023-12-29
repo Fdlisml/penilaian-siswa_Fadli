@@ -13,13 +13,13 @@
                 <tr>
                     <td width="25%">JURUSAN</td>
                     <td width="25%">
-                        <select name="jurusan_id">
+                        <select name="nama_jurusan">
                             <option></option>
                             @foreach ($jurusan as $j)
-                                @if ($kelas->jurusan_id == $j->id)
-                                    <option value="{{ $j->id }}" selected>{{ $j->nama_jurusan }}</option>
+                                @if ($kelas->nama_jurusan == $j)
+                                    <option value="{{ $j }}" selected>{{ $j }}</option>
                                 @else
-                                    <option value="{{ $j->id }}">{{ $j->nama_jurusan }}</option>
+                                    <option value="{{ $j }}">{{ $j }}</option>
                                 @endif
                             @endforeach
                         </select>

@@ -16,7 +16,6 @@
         <a href="/home">HOME</a>
         @if (session('role') == 'admin')
             <a href="/guru/index">GURU</a>
-            <a href="/jurusan/index">JURUSAN</a>
             <a href="/kelas/index">KELAS</a>
             <a href="/siswa/index">SISWA</a>
             <a href="/mapel/index">MAPEL</a>

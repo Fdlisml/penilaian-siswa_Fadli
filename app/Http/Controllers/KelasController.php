@@ -29,8 +29,9 @@ class KelasController extends Controller
      */
     public function create()
     {
+        $jurusan = ['DKV', 'BKP', 'DPIB', 'RPL', 'SIJA', 'TKJ', 'TP', 'TOI', 'TKR', 'TFLM'];
         return view('kelas.create',[
-            'jurusan' => Jurusan::all()
+            'jurusan' => $jurusan
         ]);
     }
 
@@ -44,7 +45,7 @@ class KelasController extends Controller
     {
         $data_kelas = $request->validate([
             'nama_kelas' => ['required'],
-            'jurusan_id' => ['required']
+            'nama_jurusan' => ['required']
         ]);
 
         Kelas::create($data_kelas);
@@ -70,9 +71,10 @@ class KelasController extends Controller
      */
     public function edit(Kelas $kelas)
     {
+        $jurusan = ['DKV', 'BKP', 'DPIB', 'RPL', 'SIJA', 'TKJ', 'TP', 'TOI', 'TKR', 'TFLM'];
         return view('kelas.edit', [
             'kelas' => $kelas,
-            'jurusan' => Jurusan::all()
+            'jurusan' => $jurusan
         ]);
     }
 
@@ -87,7 +89,7 @@ class KelasController extends Controller
     {
         $data_kelas = $request->validate([
             'nama_kelas' => ['required'],
-            'jurusan_id' => ['required']
+            'nama_jurusan' => ['required']
         ]);
         $kelas->update($data_kelas);
         return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil di Ubah');

@@ -13,10 +13,10 @@
                 <tr>
                     <td width="25%">JURUSAN</td>
                     <td width="25%">
-                        <select name="jurusan_id">
+                        <select name="nama_jurusan">
                             <option></option>
                             @foreach ($jurusan as $j)
-                            <option value="{{ $j->id }}">{{ $j->nama_jurusan }}</option>
+                                <option value="{{ $j }}">{{ $j }}</option>
                             @endforeach
                         </select>
                     </td>

@@ -31,7 +31,7 @@
                         <select name="kelas_id" id="">
                             <option></option>
                             @foreach ($kelas as $k)
-                                <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
+                                <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
                             @endforeach
                         </select>
                     </td>

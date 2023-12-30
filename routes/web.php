@@ -39,15 +39,6 @@ Route::controller(GuruController::class)->prefix('guru')->group(function () {
    Route::get('/destroy/{guru}', 'destroy');
 });
 
-Route::controller(JurusanController::class)->prefix('jurusan')->group(function () {
-   Route::get('/index', 'index');
-   Route::get('/create', 'create');
-   Route::post('/store', 'store');
-   Route::get('/edit/{jurusan}', 'edit');
-   Route::post('/update/{jurusan}', 'update');
-   Route::get('/destroy/{jurusan}', 'destroy');
-});
-
 Route::controller(MapelController::class)->prefix('mapel')->group(function () {
    Route::get('/index', 'index');
    Route::get('/create', 'create');

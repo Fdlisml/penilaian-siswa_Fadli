@@ -26,6 +26,10 @@
                     </td>
                 </tr>
                 <tr>
+                    <td width="25%">ROMBEL</td>
+                    <td width="25%"><input type="number" name="rombel" max="3" min="1" value="{{ $kelas->rombel }}" id=""></td>
+                </tr>
+                <tr>
                     <td colspan="2">
                         <center><button class="btn btn-primary" type="submit">UBAH</button></center>
                     </td>

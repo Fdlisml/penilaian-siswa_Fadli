@@ -45,7 +45,8 @@ class KelasController extends Controller
     {
         $data_kelas = $request->validate([
             'nama_kelas' => ['required'],
-            'nama_jurusan' => ['required']
+            'nama_jurusan' => ['required'],
+            'rombel' => ['required']
         ]);
 
         Kelas::create($data_kelas);
@@ -89,7 +90,8 @@ class KelasController extends Controller
     {
         $data_kelas = $request->validate([
             'nama_kelas' => ['required'],
-            'nama_jurusan' => ['required']
+            'nama_jurusan' => ['required'],
+            'rombel' => ['required']
         ]);
         $kelas->update($data_kelas);
         return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil di Ubah');

@@ -31,7 +31,7 @@
                             <td>{{ $s->nama_siswa }}</td>
                             <td>{{ $s->jk == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>
                             <td>{{ $s->alamat }}</td>
-                            <td>{{ $s->kelas->nama_kelas }}</td>
+                            <td>{{ $s->kelas->nama_kelas }} {{ $s->kelas->nama_jurusan }} {{ $s->kelas->rombel }}</td>
                             <td>{{ $s->password }}</td>
                             <td>
                                 <a href="/siswa/edit/{{ $s->id }}" class="btn btn-warning">EDIT</a>

@@ -43,9 +43,9 @@
                             <option></option>
                             @foreach ($kelas as $k)
                                 @if ($mengajar->kelas_id == $k->id)
-                                    <option value="{{ $k->id }}" selected>{{ $k->nama_kelas }} {{ $k->jurusan->nama_jurusan }}</option>
+                                    <option value="{{ $k->id }}" selected>{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
                                 @else
-                                    <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->jurusan->nama_jurusan }}</option>
+                                    <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
                                 @endif
                             @endforeach
                         </select>

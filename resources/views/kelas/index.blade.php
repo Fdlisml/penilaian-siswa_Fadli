@@ -16,6 +16,7 @@
                         <th>NO</th>
                         <th>KELAS</th>
                         <th>JURUSAN</th>
+                        <th>ROMBEL</th>
                         <th>ACTION</th>
                     </tr>
                 </thead>
@@ -25,6 +26,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $k->nama_kelas }}</td>
                             <td>{{ $k->nama_jurusan }}</td>
+                            <td>{{ $k->rombel }}</td>
                             <td>
                                 <a href="/kelas/edit/{{ $k->id }}" class="btn btn-warning">EDIT</a>
                                 <a href="/kelas/destroy/{{ $k->id }}" onclick="return confirm('Yakin Hapus?')"

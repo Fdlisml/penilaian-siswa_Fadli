@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_kelas');
             $table->enum('nama_jurusan', ['DKV', 'BKP', 'DPIB', 'RPL', 'SIJA', 'TKJ', 'TP', 'TOI', 'TKR', 'TFLM']);
+            $table->enum('rombel', ['1', '2', '3']);
             $table->timestamps();
         });
     }

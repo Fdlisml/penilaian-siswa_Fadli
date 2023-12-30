@@ -1,11 +1,10 @@
 @extends('layout.main')
 @section('content')
     <center>
-        <br>
         <h2>TAMBAH DATA GURU</h2>
         <form action="/guru/store" method="post">
             @csrf
-            <table class="table-data" width="50%">
+            <table width="50%">
                 <tr>
                     <td width="25%">NIP</td>
                     <td width="25%"><input type="text" class="" name="nip" id=""></td>
@@ -23,7 +22,7 @@
                 </tr>
                 <tr>
                     <td width="25%">ALAMAT</td>
-                    <td width="25%"><textarea name="alamat" id="" cols="30" rows="5"></textarea></td>
+                    <td width="25%"><textarea name="alamat" id="" cols="25" rows="5"></textarea></td>
                 </tr>
                 <tr>
                     <td width="25%">PASSWORD</td>
@@ -31,7 +30,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <center><button class="btn btn-primary" type="submit">SIMPAN</button></center>
+                        <center><button class="button-primary" type="submit">SIMPAN</button></center>
                     </td>
                 </tr>
             </table>

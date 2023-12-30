@@ -5,7 +5,7 @@
         <h2>TAMBAH DATA KELAS</h2>
         <form action="/kelas/store" method="post">
             @csrf
-            <table class="table-data" width="50%">
+            <table width="50%">
                 <tr>
                     <td width="25%">KELAS</td>
                     <td width="25%"><input type="text" name="nama_kelas" id=""></td>
@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <center><button class="btn btn-primary" type="submit">SIMPAN</button></center>
+                        <center><button class="button-primary" type="submit">SIMPAN</button></center>
                     </td>
                 </tr>
             </table>

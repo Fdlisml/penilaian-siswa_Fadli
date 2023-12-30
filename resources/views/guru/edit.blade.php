@@ -1,11 +1,10 @@
 @extends('layout.main')
 @section('content')
     <center>
-        <br>
         <h2>EDIT DATA GURU</h2>
         <form action="/guru/update/{{ $guru->id }}" method="post">
             @csrf
-            <table class="table-data" width="50%">
+            <table width="50%">
                 <tr>
                     <td width="25%">NIP</td>
                     <td width="25%"><input type="text" name="nip" value="{{ $guru->nip }}"></td>
@@ -23,7 +22,7 @@
                 </tr>
                 <tr>
                     <td width="25%">ALAMAT</td>
-                    <td width="25%"><textarea name="alamat" value="" cols="30" rows="5">{{ $guru->alamat }}</textarea></td>
+                    <td width="25%"><textarea name="alamat" value="" cols="25" rows="5">{{ $guru->alamat }}</textarea></td>
                 </tr>
                 <tr>
                     <td width="25%">PASSWORD</td>
@@ -31,7 +30,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <center><button class="btn btn-primary" type="submit">UBAH</button></center>
+                        <center><button class="button-primary" type="submit">UBAH</button></center>
                     </td>
                 </tr>
             </table>

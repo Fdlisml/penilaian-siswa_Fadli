@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <title>Penilaian Siswa</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+
 <body>
     <div class="header">
         <img src="{{ asset('img/header.jpg') }}" height="40%" width="100%" alt="">
     </div>
-    
+
     <div class="menu">
         <a href="/home">HOME</a>
         @if (session('role') == 'admin')
@@ -26,7 +28,9 @@
         <a href="/logout">LOGOUT</a>
     </div>
 
-    @yield('content')
+    <div class="content">
+        @yield('content')
+    </div>
 
     <div class="footer">
         <center>
@@ -36,4 +40,5 @@
         </center>
     </div>
 </body>
+
 </html>

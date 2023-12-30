@@ -5,7 +5,7 @@
             <h2>LIST DATA NILAI</h2>
 
             @if (session('role') == 'guru')
-                <a href="/nilai/create" class="btn btn-primary">Tambah Data</a>
+                <a href="/nilai/create" class="button-primary">TAMBAH DATA</a>
             @endif
 
             @if (session('success'))
@@ -15,8 +15,8 @@
             @if (session('error'))
                 <p class="text-danger">{{ session('error') }}</p>
             @endif
-            <table class="table table-primary table-striped table-hover align-middle table-bordered mt-3">
-                <thead class="table-dark">
+            <table class="table-data">
+                <thead>
                     <tr>
                         <th>NO</th>
                         <th>GURU MAPEL</th>
@@ -30,7 +30,7 @@
                         @endif
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody>
                     @foreach ($nilai as $each)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -41,9 +41,9 @@
                             <td>{{ $each->uas }}</td>
                             <td>{{ $each->na }}</td>
                             @if (session('role') == 'guru')
-                                <td>
-                                    <a href="/nilai/edit/{{ $each->id }}" class="btn btn-warning">EDIT</a>
-                                    <a href="/nilai/destroy/{{ $each->id }}" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger">HAPUS</a>
+                                <td style="text-align: center">
+                                    <a href="/nilai/edit/{{ $each->id }}" class="button-warning">EDIT</a>
+                                    <a href="/nilai/destroy/{{ $each->id }}" onclick="return confirm('Yakin Hapus?')" class="button-danger">HAPUS</a>
                                 </td>
                             @endif
                         </tr>

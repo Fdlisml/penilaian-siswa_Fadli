@@ -21,19 +21,15 @@ class IndexController extends Controller
 
     public function loginAdmin(Request $request)
     {
-        $administratior = Administrator::where('id_admin', $request->kode_admin)->first();
+        $administrator = Administrator::where('id_admin', $request->kode_admin)->where('password', $request->password)->first();
 
-        if (!$administratior) {
-            return back();
-        }
-
-        if ($administratior->password != $request->password) {
-            return back();
+        if (!$administrator) {
+            return back()->with('error', 'Kode Admin atau Password Salah');
         }
 
         session([
             'role' => 'admin',
-            'id_admin' => $administratior->id_admin
+            'id_admin' => $administrator->id_admin
         ]);
 
         return redirect('/home');
@@ -41,14 +37,10 @@ class IndexController extends Controller
 
     public function loginGuru(Request $request)
     {
-        $guru = Guru::where('nip', $request->nip)->first();
+        $guru = Guru::where('nip', $request->nip)->where('password', $request->password)->first();
 
         if (!$guru) {
-            return back();
-        }
-
-        if ($guru->password != $request->password) {
-            return back();
+            return back()->with('error', 'NIP atau Password Salah');
         }
 
         session([
@@ -62,20 +54,16 @@ class IndexController extends Controller
 
     public function loginSiswa(Request $request)
     {
-        $siswa = Siswa::where('nis', $request->nis)->first();
+        $siswa = Siswa::where('nis', $request->nis)->where('password', $request->password)->first();
 
         if (!$siswa) {
-            return back();
-        }
-
-        if ($siswa->password != $request->password) {
-            return back();
+            return back()->with('error', 'NIS atau Password Salah');
         }
 
         session([
             'role' => 'siswa',
             'nama_siswa' => $siswa->nama_siswa,
-            'id' => $siswa->id
+         'id' => $siswa->id
         ]);
 
         return redirect('/home');

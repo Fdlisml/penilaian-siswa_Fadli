@@ -3,15 +3,15 @@
     <center>
         <b>
             <h2>LIST DATA SISWA</h2>
-            <a href="/siswa/create" class="btn btn-primary">Tambah Data</a>
+            <a href="/siswa/create" class="button-primary">TAMBAH DATA</a>
             @if (session('success'))
                 <p class="text-success">{{ session('success') }}</p>
             @endif
             @if (session('error'))
                 <p class="text-danger">{{ session('error') }}</p>
             @endif
-            <table class="table table-primary table-striped table-hover align-middle table-bordered mt-3">
-                <thead class="table-dark">
+            <table class="table-data">
+                <thead>
                     <tr>
                         <th>NO</th>
                         <th>NIS</th>
@@ -23,7 +23,7 @@
                         <th>ACTION</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody>
                     @foreach ($siswa as $s)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -33,9 +33,9 @@
                             <td>{{ $s->alamat }}</td>
                             <td>{{ $s->kelas->nama_kelas }} {{ $s->kelas->nama_jurusan }} {{ $s->kelas->rombel }}</td>
                             <td>{{ $s->password }}</td>
-                            <td>
-                                <a href="/siswa/edit/{{ $s->id }}" class="btn btn-warning">EDIT</a>
-                                <a href="/siswa/destroy/{{ $s->id }}" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger">HAPUS</a>
+                            <td style="text-align: center">
+                                <a href="/siswa/edit/{{ $s->id }}" class="button-warning">EDIT</a>
+                                <a href="/siswa/destroy/{{ $s->id }}" onclick="return confirm('Yakin Hapus?')" class="button-danger">HAPUS</a>
                             </td>
                         </tr>
                     @endforeach

@@ -5,7 +5,7 @@
         <h2>EDIT DATA SISWA</h2>
         <form action="/siswa/update/{{ $siswa->id }}" method="post">
             @csrf
-            <table class="table-data" width="50%">
+            <table width="50%">
                 <tr>
                     <td width="25%">NIS</td>
                     <td width="25%"><input type="text" class="" name="nis" value="{{ $siswa->nis }}"></td>
@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td width="25%">ALAMAT</td>
-                    <td width="25%"><textarea name="alamat" id="" cols="30" rows="5">{{ $siswa->alamat }}</textarea></td>
+                    <td width="25%"><textarea name="alamat" id="" cols="25" rows="5">{{ $siswa->alamat }}</textarea></td>
                 </tr>
                 <tr>
                     <td width="25%">KELAS</td>
@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <center><button class="btn btn-primary" type="submit">UBAH</button></center>
+                        <center><button class="button-primary" type="submit">UBAH</button></center>
                     </td>
                 </tr>
             </table>

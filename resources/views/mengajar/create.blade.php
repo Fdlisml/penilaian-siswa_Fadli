@@ -5,7 +5,7 @@
         <h2>TAMBAH DATA MENGAJAR</h2>
         <form action="/mengajar/store" method="post">
             @csrf
-            <table class="table-data" width="50%">
+            <table width="50%">
                 <tr>
                     <td width="25%">GURU</td>
                     <td width="25%">
@@ -41,7 +41,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <center><button class="btn btn-primary" type="submit">SIMPAN</button></center>
+                        <center><button class="button-primary" type="submit">SIMPAN</button></center>
                     </td>
                 </tr>
             </table>

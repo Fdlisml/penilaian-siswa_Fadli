@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <div class="header">
-        <img src="{{ asset('img/header.jpg') }}" width="100%" height="40%" alt="">
-    </div>
+    @include('partials.header')
+
     <div class="menu">
         <a href="/" class="active">Home</a>
     </div>
+
     <div class="kiri-atas">
         <fieldset>
             <center>
@@ -37,11 +37,13 @@
                     <table>
                         <tr>
                             <td width="25%"><strong>Kode Admin</strong></td>
-                            <td width="25%" style="text-align: right"><input type="text" name="kode_admin" maxlength="25" required></td>
+                            <td width="25%" style="text-align: right"><input type="text" name="kode_admin"
+                                    maxlength="25" required></td>
                         </tr>
                         <tr>
                             <td width="25%"><strong>Password</strong></td>
-                            <td width="25%" style="text-align: right"><input type="password" name="password" maxlength="10" required></td>
+                            <td width="25%" style="text-align: right"><input type="password" name="password"
+                                    maxlength="10" required></td>
                         </tr>
                     </table>
                     <center>
@@ -61,11 +63,13 @@
                     <table>
                         <tr>
                             <td width="25%"><strong>NIP</strong></td>
-                            <td width="25%" style="text-align: right"><input type="text" name="nip" maxlength="25" required></td>
+                            <td width="25%" style="text-align: right"><input type="text" name="nip"
+                                    maxlength="25" required></td>
                         </tr>
                         <tr>
                             <td width="25%"><strong>Password</strong></td>
-                            <td width="25%" style="text-align: right"><input type="password" name="password" maxlength="10" required></td>
+                            <td width="25%" style="text-align: right"><input type="password" name="password"
+                                    maxlength="10" required></td>
                         </tr>
                     </table>
                     <center>
@@ -85,11 +89,13 @@
                     <table>
                         <tr>
                             <td width="25%"><strong>NIS</strong></td>
-                            <td width="25%" style="text-align: right"><input type="text" name="nis" maxlength="25" required></td>
+                            <td width="25%" style="text-align: right"><input type="text" name="nis"
+                                    maxlength="25" required></td>
                         </tr>
                         <tr>
                             <td width="25%"><strong>Password</strong></td>
-                            <td width="25%" style="text-align: right"><input type="password" name="password" maxlength="10" required></td>
+                            <td width="25%" style="text-align: right"><input type="password" name="password"
+                                    maxlength="10" required></td>
                         </tr>
                     </table>
                     <center>
@@ -121,13 +127,8 @@
         </center>
     </div>
 
-    <div class="footer">
-        <center>
-            <p class="mar">2023 - LSP & UJIKOM</p>
-        </center>
-    </div>
-
-    <script src="/js/script.js"></script>
+    @include('partials.footer')
 </body>
+<script src="/js/script.js"></script>
 
 </html>

@@ -10,12 +10,10 @@
 </head>
 
 <body>
-    <div class="header">
-        <img src="{{ asset('img/header.jpg') }}" height="40%" width="100%" alt="">
-    </div>
+    @include('partials.header')
 
     <div class="menu">
-        <a href="/home">HOME</a>
+        <a href="/home" class="active">HOME</a>
         @if (session('role') == 'admin')
             <a href="/guru/index">GURU</a>
             <a href="/kelas/index">KELAS</a>
@@ -32,13 +30,7 @@
         @yield('content')
     </div>
 
-    <div class="footer">
-        <center>
-            <p>
-                &copy; {{ date('Y') }} - LSP & UJIKOM
-            </p>
-        </center>
-    </div>
+    @include('partials.footer')
 </body>
 
 </html>

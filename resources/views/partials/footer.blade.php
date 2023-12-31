@@ -1,3 +1,7 @@
-<footer>
-    <p>&copy; {{ date('Y') }} - <strong>Fadli Ismail</strong></p>
-</footer>
+<div class="footer">
+   <center>
+       <p>
+           &copy; {{ date('Y') }} - LSP & UJIKOM
+       </p>
+   </center>
+</div>

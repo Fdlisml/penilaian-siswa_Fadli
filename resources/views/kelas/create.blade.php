@@ -1,36 +1,29 @@
 @extends('layout.main')
 @section('content')
-    <center>
-        <br>
-        <h2>TAMBAH DATA KELAS</h2>
+    <div class="container-form">
+        <h2 align="center">Tambah Data Kelas</h2>
+
+        @if (session('error'))
+            <p class="text-danger">{{ session('error') }}</p>
+        @endif
+
         <form action="/kelas/store" method="post">
             @csrf
-            <table width="50%">
-                <tr>
-                    <td width="25%">KELAS</td>
-                    <td width="25%"><input type="text" name="nama_kelas" id=""></td>
-                </tr>
-                <tr>
-                    <td width="25%">JURUSAN</td>
-                    <td width="25%">
-                        <select name="nama_jurusan">
-                            <option></option>
-                            @foreach ($jurusan as $j)
-                                <option value="{{ $j }}">{{ $j }}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">ROMBEL</td>
-                    <td width="25%"><input type="number" name="rombel" max="3" min="1" id=""></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <center><button class="button-primary" type="submit">SIMPAN</button></center>
-                    </td>
-                </tr>
-            </table>
+            <label for="nama_kelas">Kelas</label>
+            <input type="text" name="nama_kelas" id="nama_kelas"></td>
+
+            <label>Jurusan</label>
+            <select name="nama_jurusan">
+                <option></option>
+                @foreach ($jurusan as $j)
+                    <option value="{{ $j }}">{{ $j }}</option>
+                @endforeach
+            </select>
+
+            <label for="rombel">Rombel</label>
+            <input type="number" name="rombel" max="3" min="1" id="rombel">
+
+            <button class="button-submit" type="submit">Simpan</button>
         </form>
-    </center>
+    </div>
 @endsection

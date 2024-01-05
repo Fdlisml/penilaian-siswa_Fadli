@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use App\Models\Mengajar;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Database\QueryException;
+use Illuminate\Validation\ValidationException;
 
 class GuruController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('guru.index', [
@@ -21,11 +18,6 @@ class GuruController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('guru.create');
@@ -33,28 +25,15 @@ class GuruController extends Controller
 
     public function store(Request $request)
     {
-        try {
-            $data_guru = $request->validate([
-                'nip' => ['required', 'numeric'],
-                'nama_guru' => ['required'],
-                'jk' => ['required'],
-                'alamat' => ['required'],
-                'password' => ['required']
-            ]);
-            Guru::create($data_guru);
-            return redirect('/guru/index')->with('success', 'Data Guru Berhasil di Tambah');
-        } catch (QueryException $e) {
-            $errorCode = $e->errorInfo[1];
-
-            if ($errorCode == 1062) { // Kode error untuk pelanggaran keterunikannya
-                return redirect('/guru/index')->with('error', 'Nip yang dimasukkan sudah ada');
-            }
-        }
-    }
-
-    public function show($id)
-    {
-        //
+        $data_guru = $request->validate([
+            'nip' => ['required', 'numeric', 'unique:gurus'],
+            'nama_guru' => ['required'],
+            'jk' => ['required'],
+            'alamat' => ['required'],
+            'password' => ['required']
+        ]);
+        Guru::create($data_guru);
+        return redirect('/guru/index')->with('success', 'Data Guru Berhasil di Tambah');
     }
 
     public function edit(Guru $guru)
@@ -66,23 +45,16 @@ class GuruController extends Controller
 
     public function update(Request $request, Guru $guru)
     {
-        try {
-            $data_guru = $request->validate([
-                'nip' => ['required', 'numeric'],
-                'nama_guru' => ['required'],
-                'jk' => ['required'],
-                'alamat' => ['required'],
-                'password' => ['required']
-            ]);
-            $guru->update($data_guru);
-            return redirect('/guru/index')->with('success', 'Data Guru Berhasil di Ubah');
-        } catch (QueryException $e) {
-            $errorCode = $e->errorInfo[1];
+        $data_guru = $request->validate([
+            'nip' => ['required', 'numeric', Rule::unique('gurus')->ignore($guru->id)],
+            'nama_guru' => ['required'],
+            'jk' => ['required'],
+            'alamat' => ['required'],
+            'password' => ['required']
+        ]);
 
-            if ($errorCode == 1062) { // Kode error untuk pelanggaran keterunikannya
-                return redirect('/guru/index')->with('error', 'Nip yang dimasukkan sudah ada');
-            }
-        }
+        $guru->update($data_guru);
+        return redirect('/guru/index')->with('success', 'Data Guru Berhasil di Ubah');
     }
 
     public function destroy(Guru $guru)

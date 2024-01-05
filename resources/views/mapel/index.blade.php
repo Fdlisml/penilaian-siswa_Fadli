@@ -5,10 +5,10 @@
             <h2>LIST DATA MAPEL</h2>
             <a href="/mapel/create" class="button-primary">TAMBAH DATA</a>
             @if (session('success'))
-                <p class="text-success">{{ session('success') }}</p>
+                <div class="alert alert-success"><span class="closebtn" id="closeBtn">&times;</span>{{ session('success') }}</div>
             @endif
             @if (session('error'))
-                <p class="text-danger">{{ session('error') }}</p>
+                <div class="alert alert-danger"><span class="closebtn" id="closeBtn">&times;</span>{{ session('error') }}</div>
             @endif
             <table class="table-data">
                 <thead>

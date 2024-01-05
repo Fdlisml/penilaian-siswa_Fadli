@@ -1,21 +1,20 @@
 @extends('layout.main')
 @section('content')
-    <center>
-        <br>
-        <h2>EDIT DATA MAPEL</h2>
+    <div class="container-form">
+        <h2 align="center">Edit Data Mapel</h2>
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="text-danger">{{ $error }}</p>
+            @endforeach
+        @endif
+
         <form action="/mapel/update/{{ $mapel->id }}" method="post">
             @csrf
-            <table width="50%">
-                <tr>
-                    <td width="25%">MATA PELAJARAN</td>
-                    <td width="25%"><input type="text" name="nama_mapel" value="{{ $mapel->nama_mapel }}"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <center><button class="button-primary" type="submit">UBAH</button></center>
-                    </td>
-                </tr>
-            </table>
+            <label for="nama_mapel">Mata Pelajaran</label>
+            <input type="text" name="nama_mapel" id="nama_mapel" value="{{ $mapel->nama_mapel }}">
+
+            <button class="button-submit" type="submit">Ubah</button>
         </form>
-    </center>
+    </div>
 @endsection

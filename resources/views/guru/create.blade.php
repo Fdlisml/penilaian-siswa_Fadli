@@ -1,39 +1,33 @@
 @extends('layout.main')
 @section('content')
-    <center>
-        <h2>TAMBAH DATA GURU</h2>
+    <div class="container-form">
+        <h2 align="center">Tambah Data Guru</h2>
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="text-danger">{{ $error }}</p>
+            @endforeach
+        @endif
+
         <form action="/guru/store" method="post">
             @csrf
-            <table width="50%">
-                <tr>
-                    <td width="25%">NIP</td>
-                    <td width="25%"><input type="text" class="" name="nip" id=""></td>
-                </tr>
-                <tr>
-                    <td width="25%">NAMA GURU</td>
-                    <td width="25%"><input type="text" name="nama_guru" id=""></td>
-                </tr>
-                <tr>
-                    <td width="25%">JENIS KELAMIN</td>
-                    <td width="25%">
-                        <input type="radio" name="jk" value="L">Laki-laki
-                        <input type="radio" name="jk" value="P">Perempuan
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">ALAMAT</td>
-                    <td width="25%"><textarea name="alamat" id="" cols="25" rows="5"></textarea></td>
-                </tr>
-                <tr>
-                    <td width="25%">PASSWORD</td>
-                    <td width="25%"><input type="password" name="password" id=""></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <center><button class="button-primary" type="submit">SIMPAN</button></center>
-                    </td>
-                </tr>
-            </table>
+            <label for="nip">Nip</label>
+            <input type="text" name="nip" id="nip">
+
+            <label for="nama_guru">Nama Guru</label>
+            <input type="text" name="nama_guru" id="nama_guru">
+
+            <label>Jenis Kelamin</label>
+            <input type="radio" name="jk" value="L"> Laki-laki
+            <input type="radio" name="jk" value="P"> Perempuan
+
+            <label for="alamat">Alamat</label>
+            <textarea name="alamat" rows="5" id="alamat"></textarea>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+
+            <button class="button-submit" type="submit" name="button">Simpan</button>
         </form>
-    </center>
+    </div>
 @endsection

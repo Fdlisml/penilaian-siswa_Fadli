@@ -1,51 +1,41 @@
 @extends('layout.main')
 @section('content')
-    <center>
-        <br>
-        <h2>TAMBAH DATA SISWA</h2>
+    <div class="container-form">
+        <h2 align="center">Tambah Data Siswa</h2>
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="text-danger">{{ $error }}</p>
+            @endforeach
+        @endif
+
         <form action="/siswa/store" method="post">
             @csrf
-            <table width="50%">
-                <tr>
-                    <td width="25%">NIS</td>
-                    <td width="25%"><input type="text" class="" name="nis" id=""></td>
-                </tr>
-                <tr>
-                    <td width="25%">NAMA SISWA</td>
-                    <td width="25%"><input type="text" name="nama_siswa" id=""></td>
-                </tr>
-                <tr>
-                    <td width="25%">JENIS KELAMIN</td>
-                    <td width="25%">
-                        <input type="radio" name="jk" value="L">Laki-laki
-                        <input type="radio" name="jk" value="P">Perempuan
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">ALAMAT</td>
-                    <td width="25%"><textarea name="alamat" id="" cols="25" rows="5"></textarea></td>
-                </tr>
-                <tr>
-                    <td width="25%">KELAS</td>
-                    <td width="25%">
-                        <select name="kelas_id" id="">
-                            <option></option>
-                            @foreach ($kelas as $k)
-                                <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">PASSWORD</td>
-                    <td width="25%"><input type="password" name="password" id=""></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <center><button class="button-primary" type="submit">SIMPAN</button></center>
-                    </td>
-                </tr>
-            </table>
+            <label for="nis">Nis</label>
+            <input type="text" class="" name="nis" id="nis">
+
+            <label for="nama_siswa">Nama Siswa</label>
+            <input type="text" name="nama_siswa" id="nama_siswa">
+
+            <label>Jenis Kelamin</label>
+            <input type="radio" name="jk" value="L"> Laki-laki
+            <input type="radio" name="jk" value="P"> Perempuan
+
+            <label for="alamat">Alamat</label>
+            <textarea name="alamat" rows="5" id="alamat"></textarea>
+
+            <label for="kelas_id">Kelas</label>
+            <select name="kelas_id" id="kelas_id">
+                <option></option>
+                @foreach ($kelas as $k)
+                    <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
+                @endforeach
+            </select>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+
+            <button class="button-submit" type="submit">Simpan</button>
         </form>
-    </center>
+    </div>
 @endsection

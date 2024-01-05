@@ -46,9 +46,7 @@
                                     maxlength="10" required></td>
                         </tr>
                     </table>
-                    <center>
-                        <button class="button-login" type="submit" name="button">Login</button>
-                    </center>
+                    <button class="button-submit" type="submit" name="button">Login</button>
                 </form>
             </div>
 
@@ -72,9 +70,7 @@
                                     maxlength="10" required></td>
                         </tr>
                     </table>
-                    <center>
-                        <button class="button-login" type="submit" name="button">Login</button>
-                    </center>
+                    <button class="button-submit" type="submit" name="button">Login</button>
                 </form>
             </div>
 
@@ -98,9 +94,7 @@
                                     maxlength="10" required></td>
                         </tr>
                     </table>
-                    <center>
-                        <button class="button-login" type="submit" name="button">Login</button>
-                    </center>
+                    <button class="button-submit" type="submit" name="button">Login</button>
                 </form>
             </div>
         </fieldset>

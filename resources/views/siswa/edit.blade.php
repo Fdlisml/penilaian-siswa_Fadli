@@ -1,55 +1,45 @@
 @extends('layout.main')
 @section('content')
-    <center>
-        <br>
-        <h2>EDIT DATA SISWA</h2>
+    <div class="container-form">
+        <h2 align="center">Edit Data Siswa</h2>
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="text-danger">{{ $error }}</p>
+            @endforeach
+        @endif
+
         <form action="/siswa/update/{{ $siswa->id }}" method="post">
             @csrf
-            <table width="50%">
-                <tr>
-                    <td width="25%">NIS</td>
-                    <td width="25%"><input type="text" class="" name="nis" value="{{ $siswa->nis }}"></td>
-                </tr>
-                <tr>
-                    <td width="25%">NAMA SISWA</td>
-                    <td width="25%"><input type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}"></td>
-                </tr>
-                <tr>
-                    <td width="25%">JENIS KELAMIN</td>
-                    <td width="25%">
-                        <input type="radio" name="jk" value="L" {{ $siswa->jk =='L' ? 'checked' : '' }}>Laki-laki
-                        <input type="radio" name="jk" value="P" {{ $siswa->jk =='P' ? 'checked' : '' }}>Perempuan
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">ALAMAT</td>
-                    <td width="25%"><textarea name="alamat" id="" cols="25" rows="5">{{ $siswa->alamat }}</textarea></td>
-                </tr>
-                <tr>
-                    <td width="25%">KELAS</td>
-                    <td width="25%">
-                        <select name="kelas_id" id="">
-                            <option></option>
-                            @foreach ($kelas as $k)
-                                @if ($siswa->kelas_id == $k->id)
-                                    <option value="{{ $k->id }}" selected>{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
-                                @else
-                                    <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">PASSWORD</td>
-                    <td width="25%"><input type="password" name="password" value="{{ $siswa->password }}"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <center><button class="button-primary" type="submit">UBAH</button></center>
-                    </td>
-                </tr>
-            </table>
+            <label for="nis">Nis</label>
+            <input type="text" class="" name="nis" value="{{ $siswa->nis }}" id="nis">
+
+            <label for="nama_siswa">Nama Siswa</label>
+            <input type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}" id="nama_siswa">
+
+            <label>Jenis Kelamin</label>
+            <input type="radio" name="jk" value="L" {{ $siswa->jk == 'L' ? 'checked' : '' }}> Laki-laki
+            <input type="radio" name="jk" value="P" {{ $siswa->jk == 'P' ? 'checked' : '' }}> Perempuan
+
+            <label for="alamat">Alamat</label>
+            <textarea name="alamat" rows="5" id="alamat">{{ $siswa->alamat }}</textarea>
+
+            <label for="kelas_id">Kelas</label>
+            <select name="kelas_id" id="kelas_id">
+                <option></option>
+                @foreach ($kelas as $k)
+                    @if ($siswa->kelas_id == $k->id)
+                        <option value="{{ $k->id }}" selected>{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
+                    @else
+                        <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
+                    @endif
+                @endforeach
+            </select>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" value="{{ $siswa->password }}" id="password">
+
+            <button class="button-submit" type="submit">Ubah</button>
         </form>
-    </center>
+    </div>
 @endsection

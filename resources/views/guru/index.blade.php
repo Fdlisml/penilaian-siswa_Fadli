@@ -5,10 +5,10 @@
             <h2>LIST DATA GURU</h2>
             <a href="/guru/create" class="button-primary">TAMBAH DATA</a>
             @if (session('success'))
-                <p class="text-success">{{ session('success') }}</p>
+                <div class="alert alert-success"><span class="closebtn" id="closeBtn">&times;</span>{{ session('success') }}</div>
             @endif
             @if (session('error'))
-                <p class="text-danger">{{ session('error') }}</p>
+                <div class="alert alert-danger"><span class="closebtn" id="closeBtn">&times;</span>{{ session('error') }}</div>
             @endif
             <table class="table-data">
                 <thead>
@@ -33,8 +33,7 @@
                             <td>{{ $g->password }}</td>
                             <td style="text-align: center">
                                 <a href="/guru/edit/{{ $g->id }}" class="button-warning">EDIT</a>
-                                <a href="/guru/destroy/{{ $g->id }}" onclick="return confirm('Yakin Hapus?')"
-                                    class="button-danger">HAPUS</a>
+                                <a href="/guru/destroy/{{ $g->id }}" onclick="return confirm('Yakin Hapus?')" class="button-danger">HAPUS</a>
                             </td>
                         </tr>
                     @endforeach

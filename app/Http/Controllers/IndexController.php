@@ -63,7 +63,7 @@ class IndexController extends Controller
         session([
             'role' => 'siswa',
             'nama_siswa' => $siswa->nama_siswa,
-         'id' => $siswa->id
+            'id' => $siswa->id
         ]);
 
         return redirect('/home');

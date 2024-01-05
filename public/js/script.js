@@ -19,3 +19,14 @@ function tampilkan_login_admin(){
     login_guru.style.display = 'none'
     login_admin.style.display = 'block'
 }
+
+// Close Alert Button
+var closeBtn = document.getElementById("closeBtn");
+
+if (closeBtn) {
+  closeBtn.onclick = function() {
+    var alertBox = this.parentElement;
+    alertBox.style.opacity = "0";
+    setTimeout(function() { alertBox.style.display = "none"; }, 600);
+  }
+}

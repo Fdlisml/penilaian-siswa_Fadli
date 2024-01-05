@@ -5,21 +5,21 @@
             <h2>LIST DATA NILAI</h2>
 
             @if (session('role') == 'guru')
-                <a href="/nilai/create" class="button-primary">TAMBAH DATA</a>
+                <a href="/nilai/create/{{ $idKelas }}" class="button-primary">TAMBAH DATA</a>
             @endif
 
             @if (session('success'))
-                <p class="text-success">{{ session('success') }}</p>
+                <div class="alert alert-success"><span class="closebtn" id="closeBtn">&times;</span>{{ session('success') }}</div>
             @endif
-
             @if (session('error'))
-                <p class="text-danger">{{ session('error') }}</p>
+                <div class="alert alert-danger"><span class="closebtn" id="closeBtn">&times;</span>{{ session('error') }}</div>
             @endif
             <table class="table-data">
                 <thead>
                     <tr>
                         <th>NO</th>
-                        <th>GURU MAPEL</th>
+                        <th>GURU</th>
+                        <th>MAPEL</th>
                         <th>NAMA SISWA</th>
                         <th>UH</th>
                         <th>UTS</th>
@@ -35,6 +35,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $each->mengajar->guru->nama_guru }}</td>
+                            <td>{{ $each->mengajar->mapel->nama_mapel }}</td>
                             <td>{{ $each->siswa->nama_siswa }}</td>
                             <td>{{ $each->uh }}</td>
                             <td>{{ $each->uts }}</td>
@@ -42,7 +43,7 @@
                             <td>{{ $each->na }}</td>
                             @if (session('role') == 'guru')
                                 <td style="text-align: center">
-                                    <a href="/nilai/edit/{{ $each->id }}" class="button-warning">EDIT</a>
+                                    <a href="/nilai/edit/{{ $idKelas }}/{{ $each->id }}" class="button-warning">EDIT</a>
                                     <a href="/nilai/destroy/{{ $each->id }}" onclick="return confirm('Yakin Hapus?')" class="button-danger">HAPUS</a>
                                 </td>
                             @endif

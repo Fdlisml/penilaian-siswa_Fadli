@@ -37,14 +37,14 @@ body {
     float: left;
     background-color: aliceblue;
     width: 28%;
-    height: 46vh;
+    height: 54vh;
 }
 
 .kanan {
     background-color: skyblue;
     float: right;
     width: 72%;
-    height: 100vh;
+    height: 108vh;
     background-size: cover;
 }
 

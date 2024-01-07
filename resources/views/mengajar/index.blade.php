@@ -26,7 +26,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $meng->guru->nama_guru }}</td>
                             <td>{{ $meng->mapel->nama_mapel }}</td>
-                            <td>{{ $meng->kelas->nama_kelas }} {{ $meng->kelas->nama_jurusan }} {{ $meng->kelas->rombel }}</td>
+                            <td>{{ $meng->kelas->kelas }} {{ $meng->kelas->jurusan }} {{ $meng->kelas->rombel }}</td>
                             <td style="text-align: center">
                                 <a href="/mengajar/edit/{{ $meng->id }}" class="button-warning">EDIT</a>
                                 <a href="/mengajar/destroy/{{ $meng->id }}" onclick="return confirm('Yakin Hapus?')" class="button-danger">HAPUS</a>

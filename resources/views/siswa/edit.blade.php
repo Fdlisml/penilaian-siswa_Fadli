@@ -26,12 +26,11 @@
 
             <label for="kelas_id">Kelas</label>
             <select name="kelas_id" id="kelas_id">
-                <option></option>
                 @foreach ($kelas as $k)
                     @if ($siswa->kelas_id == $k->id)
-                        <option value="{{ $k->id }}" selected>{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
+                        <option value="{{ $k->id }}" selected>{{ $k->kelas }} {{ $k->jurusan }} {{ $k->rombel }}</option>
                     @else
-                        <option value="{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }} {{ $k->rombel }}</option>
+                        <option value="{{ $k->id }}">{{ $k->kelas }} {{ $k->jurusan }} {{ $k->rombel }}</option>
                     @endif
                 @endforeach
             </select>

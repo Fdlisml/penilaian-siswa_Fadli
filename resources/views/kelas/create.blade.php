@@ -9,11 +9,16 @@
 
         <form action="/kelas/store" method="post">
             @csrf
-            <label for="nama_kelas">Kelas</label>
-            <input type="text" name="nama_kelas" id="nama_kelas"></td>
+            <label for="kelas">Kelas</label>
+            <select name="kelas" id="kelas">
+                <option></option>
+                @foreach ($tingkat_kelas as $k)
+                    <option value="{{ $k }}">{{ $k }}</option>
+                @endforeach
+            </select>
 
-            <label>Jurusan</label>
-            <select name="nama_jurusan">
+            <label for="jurusan">Jurusan</label>
+            <select name="jurusan" id="jurusan">
                 <option></option>
                 @foreach ($jurusan as $j)
                     <option value="{{ $j }}">{{ $j }}</option>
@@ -21,7 +26,7 @@
             </select>
 
             <label for="rombel">Rombel</label>
-            <input type="number" name="rombel" max="3" min="1" id="rombel">
+            <input type="number" name="rombel" max="4" min="1" id="rombel">
 
             <button class="button-submit" type="submit">Simpan</button>
         </form>

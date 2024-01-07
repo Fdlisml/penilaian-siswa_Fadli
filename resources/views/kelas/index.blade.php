@@ -24,8 +24,8 @@
                     @foreach ($kelas as $k)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $k->nama_kelas }}</td>
-                            <td>{{ $k->nama_jurusan }}</td>
+                            <td>{{ $k->kelas }}</td>
+                            <td>{{ $k->jurusan }}</td>
                             <td>{{ $k->rombel }}</td>
                             <td style="text-align: center">
                                 <a href="/kelas/edit/{{ $k->id }}" class="button-warning">EDIT</a>

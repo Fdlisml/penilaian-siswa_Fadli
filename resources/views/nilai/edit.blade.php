@@ -11,7 +11,6 @@
             @csrf
             <label for="mengajar_id">Guru Mapel</label>
             <select name="mengajar_id" id="mengajar_id">
-                <option></option>
                 @foreach ($mengajar as $each)
                     <option value="{{ $each->id }}" @if ($each->id == $nilai->mengajar_id) selected @endif> {{ $each->mapel->nama_mapel }}</option>
                 @endforeach
@@ -19,7 +18,6 @@
 
             <label for="siswa_id">Siswa</label>
             <select name="siswa_id" id="siswa_id">
-                <option></option>
                 @foreach ($siswa as $each)
                     <option value="{{ $each->id }}" @if ($each->id == $nilai->siswa_id) selected @endif> {{ $each->nama_siswa }}</option>
                 @endforeach

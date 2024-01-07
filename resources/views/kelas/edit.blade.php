@@ -6,18 +6,25 @@
         @if (session('error'))
             <p class="text-danger">{{ session('error') }}</p>
         @endif
-        
+
         <form action="/kelas/update/{{ $kelas->id }}" method="post">
             @csrf
             <tr>
-                <label for="nama_kelas">Kelas</label>
-                <input type="text" name="nama_kelas" value="{{ $kelas->nama_kelas }}" id="nama_kelas">
+                <label for="kelas">Kelas</label>
+                <select name="kelas" id="kelas">
+                    @foreach ($tingkat_kelas as $k)
+                        @if ($kelas->kelas == $k)
+                            <option value="{{ $k }}" selected>{{ $k }}</option>
+                        @else
+                            <option value="{{ $k }}">{{ $k }}</option>
+                        @endif
+                    @endforeach
+                </select>
 
-                <label>Jurusan</label>
-                <select name="nama_jurusan">
-                    <option></option>
+                <label for="jurusan">Jurusan</label>
+                <select name="jurusan" id="jurusan">
                     @foreach ($jurusan as $j)
-                        @if ($kelas->nama_jurusan == $j)
+                        @if ($kelas->jurusan == $j)
                             <option value="{{ $j }}" selected>{{ $j }}</option>
                         @else
                             <option value="{{ $j }}">{{ $j }}</option>
@@ -26,7 +33,8 @@
                 </select>
 
                 <label for="rombel">Rombel</label>
-                <input type="number" name="rombel" max="3" min="1" value="{{ $kelas->rombel }}" id="rombel">
+                <input type="number" name="rombel" max="3" min="1" value="{{ $kelas->rombel }}"
+                    id="rombel">
                 <button class="button-submit" type="submit">Ubah</button>
         </form>
     </div>

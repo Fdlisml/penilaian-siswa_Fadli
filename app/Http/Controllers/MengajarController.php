@@ -68,10 +68,9 @@ class MengajarController extends Controller
             if ($cek_mengajar) {
                 return back()->with('error', 'Data Mengajar Yang Dimasukkan Sudah Ada');
             }
-        } else {
-            $mengajar->update($data_mengajar);
-            return redirect('/mengajar/index')->with('success', 'Data Mengajar Berhasil di Ubah');
         }
+        $mengajar->update($data_mengajar);
+        return redirect('/mengajar/index')->with('success', 'Data Mengajar Berhasil di Ubah');
     }
 
     public function destroy(Mengajar $mengajar)

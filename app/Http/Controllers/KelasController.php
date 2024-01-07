@@ -19,7 +19,9 @@ class KelasController extends Controller
     public function create()
     {
         $jurusan = ['DKV', 'BKP', 'DPIB', 'RPL', 'SIJA', 'TKJ', 'TP', 'TOI', 'TKR', 'TFLM'];
+        $tingkat_kelas = ['10', '11', '12', '13'];
         return view('kelas.create', [
+            'tingkat_kelas' => $tingkat_kelas,
             'jurusan' => $jurusan
         ]);
     }
@@ -27,8 +29,8 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $data_kelas = $request->validate([
-            'nama_kelas' => ['required'],
-            'nama_jurusan' => ['required'],
+            'kelas' => ['required'],
+            'jurusan' => ['required'],
             'rombel' => ['required']
         ]);
 
@@ -45,8 +47,10 @@ class KelasController extends Controller
     public function edit(Kelas $kelas)
     {
         $jurusan = ['DKV', 'BKP', 'DPIB', 'RPL', 'SIJA', 'TKJ', 'TP', 'TOI', 'TKR', 'TFLM'];
+        $tingkat_kelas = ['10', '11', '12', '13'];
         return view('kelas.edit', [
             'kelas' => $kelas,
+            'tingkat_kelas' => $tingkat_kelas,
             'jurusan' => $jurusan
         ]);
     }
@@ -54,21 +58,20 @@ class KelasController extends Controller
     public function update(Request $request, Kelas $kelas)
     {
         $data_kelas = $request->validate([
-            'nama_kelas' => ['required'],
-            'nama_jurusan' => ['required'],
+            'kelas' => ['required'],
+            'jurusan' => ['required'],
             'rombel' => ['required']
         ]);
 
-        if ($request->nama_kelas != $kelas->nama_kelas || $request->nama_jurusan != $kelas->nama_jurusan || $request->rombel != $kelas->rombel) {
-            $cek_kelas = Kelas::where('nama_kelas', $request->nama_kelas)->where('nama_jurusan', $request->nama_jurusan)->where('rombel', $request->rombel)->first();
+        if ($request->kelas != $kelas->kelas || $request->jurusan != $kelas->jurusan || $request->rombel != $kelas->rombel) {
+            $cek_kelas = Kelas::where('kelas', $request->kelas)->where('jurusan', $request->jurusan)->where('rombel', $request->rombel)->first();
 
             if ($cek_kelas) {
                 return back()->with('error', 'Data Kelas yang dimasukkan sudah ada');
             }
-        } else {
-            $kelas->update($data_kelas);
-            return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil di Ubah');
         }
+        $kelas->update($data_kelas);
+        return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil di Ubah');
     }
 
     public function destroy(Kelas $kelas)
@@ -76,7 +79,7 @@ class KelasController extends Controller
         $siswa = Siswa::where('kelas_id', $kelas->id)->first();
         $mengajar = Mengajar::where('kelas_id', $kelas->id)->first();
 
-        $kelas_dipakai = "$kelas->nama_kelas $kelas->nama_jurusan $kelas->rombel";
+        $kelas_dipakai = "$kelas->kelas $kelas->jurusan $kelas->rombel";
 
         if ($siswa) {
             return back()->with('error', "$kelas_dipakai masih digunakan di menu Siswa");

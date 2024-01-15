@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Guru;
+use App\Models\Nilai;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use App\Models\Mengajar;
@@ -34,12 +35,12 @@ class MengajarController extends Controller
             'kelas_id' => ['required']
         ]);
 
-        $mengajar = Mengajar::firstOrNew($data_mengajar);
+        $cek_mengajar = Mengajar::where('mapel_id', $request->mapel_id)->where('kelas_id', $request->kelas_id)->first();
 
-        if ($mengajar->exists) {
+        if ($cek_mengajar) {
             return back()->with('error', 'Data Mengajar Yang Dimasukkan Sudah Ada');
         } else {
-            $mengajar->save();
+            Mengajar::create($data_mengajar);
             return redirect('/mengajar/index')->with('success', 'Data Mengajar Berhasil di Tambah');
         }
     }
@@ -75,6 +76,12 @@ class MengajarController extends Controller
 
     public function destroy(Mengajar $mengajar)
     {
+        $nilai = Nilai::where('mengajar_id', $mengajar->id)->first();
+        
+        if($nilai){
+            return back()->with('error', "Data Mengajar Masih Digunakan di Nilai");
+        }
+
         $mengajar->delete();
         return back()->with('success', "Data Mengajar Berhasil di Hapus");
     }

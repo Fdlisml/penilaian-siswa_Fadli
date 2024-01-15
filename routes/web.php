@@ -19,6 +19,7 @@ use App\Http\Controllers\NilaiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', [IndexController::class, 'home']);
 
 Route::controller(IndexController::class)->group(function () {
    Route::get('/', 'index');

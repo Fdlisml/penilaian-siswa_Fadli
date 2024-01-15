@@ -12,6 +12,7 @@ class Mengajar extends Model
     protected $table = 'mengajars';
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
+    
     public function guru()
     {
         return $this->belongsTo(Guru::class, 'guru_id', 'id');

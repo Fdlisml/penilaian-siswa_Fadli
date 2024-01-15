@@ -4,7 +4,7 @@
         @forelse ($kelas as $k)
             <div class="menu-kelas">
                 <div class="kelas-list">
-                    <a href="/nilai/kelas/{{ $k->id }}">{{ $k->nama_kelas }} {{ $k->nama_jurusan }}
+                    <a href="/nilai/kelas/{{ $k->id }}">{{ $k->kelas }} {{ $k->jurusan }}
                         {{ $k->rombel }}</a>
                 </div>
             </div>

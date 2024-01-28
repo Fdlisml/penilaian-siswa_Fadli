@@ -12,7 +12,7 @@
             <label for="guru_id">Guru</label>
             <select name="guru_id" id="guru_id">
                 @foreach ($guru as $g)
-                    <option value="{{ $g->id }}" @if ($mengajar->guru_id == $g->id) selected @endif>
+                    <option value="{{ $g->id }}" @selected($mengajar->guru_id == $g->id)>
                         {{ $g->nama_guru }}
                     </option>
                 @endforeach
@@ -21,7 +21,7 @@
             <label for="mapel_id">Mata Pelajaran</label>
             <select name="mapel_id" id="mapel_id">
                 @foreach ($mapel as $m)
-                    <option value="{{ $m->id }}" @if ($mengajar->mapel_id == $m->id) selected @endif>
+                    <option value="{{ $m->id }}" @selected($mengajar->mapel_id == $m->id)>
                         {{ $m->nama_mapel }}
                     </option>
                 @endforeach
@@ -30,7 +30,7 @@
             <label for="kelas_id">Kelas</label>
             <select name="kelas_id" id="kelas_id">
                 @foreach ($kelas as $k)
-                    <option value="{{ $k->id }}" @if ($mengajar->kelas_id == $k->id) selected @endif>
+                    <option value="{{ $k->id }}" @selected($mengajar->kelas_id == $k->id)>
                         {{ $k->kelas }} {{ $k->jurusan }} {{ $k->rombel }}
                     </option>
                 @endforeach

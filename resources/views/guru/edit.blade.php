@@ -18,8 +18,8 @@
             <input type="text" name="nama_guru" value="{{ $guru->nama_guru }}" id="nama_guru">
 
             <label>Jenis Kelamin</label>
-            <input type="radio" name="jk" value="L" {{ $guru->jk == 'L' ? 'checked' : '' }}> Laki-laki
-            <input type="radio" name="jk" value="P" {{ $guru->jk == 'P' ? 'checked' : '' }}> Perempuan
+            <input type="radio" name="jk" value="L" @checked($guru->jk == 'L')> Laki-laki
+            <input type="radio" name="jk" value="P" @checked($guru->jk == 'P')> Perempuan
 
             <label for="alamat">Alamat</label>
             <textarea name="alamat" rows="5" id="alamat">{{ $guru->alamat }}</textarea>

@@ -12,7 +12,7 @@
             <label for="kelas">Kelas</label>
             <select name="kelas" id="kelas">
                 @foreach ($tingkat_kelas as $k)
-                    <option value="{{ $k }}" @if ($kelas->kelas == $k) selected @endif>
+                    <option value="{{ $k }}" @selected($kelas->kelas == $k)>
                         {{ $k }}
                     </option>
                 @endforeach
@@ -21,7 +21,7 @@
             <label for="jurusan">Jurusan</label>
             <select name="jurusan" id="jurusan">
                 @foreach ($jurusan as $j)
-                    <option value="{{ $j }}" @if ($kelas->jurusan == $j) selected @endif>
+                    <option value="{{ $j }}" @selected($kelas->jurusan == $j)>
                         {{ $j }}
                     </option>
                 @endforeach

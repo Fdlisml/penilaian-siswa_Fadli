@@ -18,8 +18,8 @@
             <input type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}" id="nama_siswa">
 
             <label>Jenis Kelamin</label>
-            <input type="radio" name="jk" value="L" {{ $siswa->jk == 'L' ? 'checked' : '' }}> Laki-laki
-            <input type="radio" name="jk" value="P" {{ $siswa->jk == 'P' ? 'checked' : '' }}> Perempuan
+            <input type="radio" name="jk" value="L" @checked($siswa->jk == 'L')> Laki-laki
+            <input type="radio" name="jk" value="P" @checked($siswa->jk == 'P')> Perempuan
 
             <label for="alamat">Alamat</label>
             <textarea name="alamat" rows="5" id="alamat">{{ $siswa->alamat }}</textarea>
@@ -27,7 +27,7 @@
             <label for="kelas_id">Kelas</label>
             <select name="kelas_id" id="kelas_id">
                 @foreach ($kelas as $k)
-                    <option value="{{ $k->id }}" @if ($siswa->kelas_id == $k->id) selected @endif> 
+                    <option value="{{ $k->id }}" @selected($siswa->kelas_id == $k->id)> 
                         {{ $k->kelas }} {{ $k->jurusan }} {{ $k->rombel }}
                     </option>
                 @endforeach

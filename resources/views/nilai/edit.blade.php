@@ -12,7 +12,7 @@
             <label for="mengajar_id">Guru Mapel</label>
             <select name="mengajar_id" id="mengajar_id">
                 @foreach ($mengajar as $each)
-                    <option value="{{ $each->id }}" @if ($each->id == $nilai->mengajar_id) selected @endif>
+                    <option value="{{ $each->id }}" @selected($each->id == $nilai->mengajar_id)>
                         {{ $each->mapel->nama_mapel }}
                     </option>
                 @endforeach
@@ -21,7 +21,7 @@
             <label for="siswa_id">Siswa</label>
             <select name="siswa_id" id="siswa_id">
                 @foreach ($siswa as $each)
-                    <option value="{{ $each->id }}" @if ($each->id == $nilai->siswa_id) selected @endif>
+                    <option value="{{ $each->id }}" @selected($each->id == $nilai->siswa_id)>
                         {{ $each->nama_siswa }}
                     </option>
                 @endforeach

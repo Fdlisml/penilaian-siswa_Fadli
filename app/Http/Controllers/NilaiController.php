@@ -70,7 +70,7 @@ class NilaiController extends Controller
             return back()->with('error', 'Data Nilai Yang Dimasukkan Sudah Ada');
         } else {
             Nilai::create($data_nilai);
-            return redirect("/nilai/kelas/$kelas->id")->with('success', "Data Nilai Berhasil di Tambah");
+            return redirect("/nilai/kelas/$kelas->id")->with('success', "Data Nilai Berhasil Ditambah");
         }
     }
 
@@ -99,17 +99,17 @@ class NilaiController extends Controller
         if ($request->mengajar_id != $nilai->mengajar_id || $request->siswa_id != $nilai->siswa_id) {
             $cek_nilai = Nilai::where('mengajar_id', $request->mengajar_id)->where('siswa_id', $request->siswa_id)->first();
             if ($cek_nilai) {
-                return back()->with('error', 'Data Nilai yang dimasukkan sudah ada');
+                return back()->with('error', 'Data Nilai Yang Dimasukkan Sudah Ada');
             }
         } else {
             $nilai->update($data_nilai);
-            return redirect("/nilai/kelas/$kelas->id")->with('success', "Data Nilai Berhasil di Ubah");
+            return redirect("/nilai/kelas/$kelas->id")->with('success', "Data Nilai Berhasil Diubah");
         }
     }
 
     public function destroy(Nilai $nilai)
     {
         $nilai->delete();
-        return back()->with('success', "Data Nilai Berhasil di Hapus");
+        return back()->with('success', "Data Nilai Berhasil Dihapus");
     }
 }

@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use App\Models\Mengajar;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use Illuminate\Database\QueryException;
-use Illuminate\Validation\ValidationException;
 
 class GuruController extends Controller
 {
@@ -33,7 +30,7 @@ class GuruController extends Controller
             'password' => ['required']
         ]);
         Guru::create($data_guru);
-        return redirect('/guru/index')->with('success', 'Data Guru Berhasil di Tambah');
+        return redirect('/guru/index')->with('success', 'Data Guru Berhasil Ditambah');
     }
 
     public function edit(Guru $guru)
@@ -46,7 +43,7 @@ class GuruController extends Controller
     public function update(Request $request, Guru $guru)
     {
         $data_guru = $request->validate([
-            'nip' => ['required', 'numeric', Rule::unique('gurus')->ignore($guru->id)],
+            'nip' => ['required', 'numeric', 'unique:gurus,nip,'.$guru->id],
             'nama_guru' => ['required'],
             'jk' => ['required'],
             'alamat' => ['required'],
@@ -54,7 +51,7 @@ class GuruController extends Controller
         ]);
 
         $guru->update($data_guru);
-        return redirect('/guru/index')->with('success', 'Data Guru Berhasil di Ubah');
+        return redirect('/guru/index')->with('success', 'Data Guru Berhasil Diubah');
     }
 
     public function destroy(Guru $guru)
@@ -62,11 +59,11 @@ class GuruController extends Controller
         $mengajar = Mengajar::where('guru_id', $guru->id)->first();
 
         if ($mengajar) {
-            return back()->with('error', "$guru->nama_guru masih digunakan di menu mengajar");
+            return back()->with('error', "$guru->nama_guru Masih Digunakan di Menu Mengajar");
         }
 
         $guru->delete();
 
-        return back()->with('success', "Data Guru Berhasil di Hapus");
+        return back()->with('success', "Data Guru Berhasil Dihapus");
     }
 }

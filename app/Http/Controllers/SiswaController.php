@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Mengajar;
 use App\Models\Nilai;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use Illuminate\Database\QueryException;
-
 
 class SiswaController extends Controller
 {
@@ -38,7 +36,7 @@ class SiswaController extends Controller
         ]);
 
         Siswa::create($data_siswa);
-        return redirect('/siswa/index')->with('success', "Data Siswa Berhasil di Tambah");
+        return redirect('/siswa/index')->with('success', "Data Siswa Berhasil Ditambah");
     }
     
     public function edit(Siswa $siswa)
@@ -52,7 +50,7 @@ class SiswaController extends Controller
     public function update(Request $request, Siswa $siswa)
     {
         $data_siswa = $request->validate([
-            'nis' => ['required', 'numeric', Rule::unique('siswas')->ignore($siswa->id)],
+            'nis' => ['required', 'numeric', 'unique:siswas,nis,'.$siswa->id],
             'nama_siswa' => ['required'],
             'jk' => ['required'],
             'alamat' => ['required'],
@@ -60,18 +58,23 @@ class SiswaController extends Controller
             'password' => ['required']
         ]);
         $siswa->update($data_siswa);
-        return redirect('/siswa/index')->with('success', "Data Siswa Berhasil di Ubah");
+        return redirect('/siswa/index')->with('success', "Data Siswa Berhasil Diubah");
     }
     
     public function destroy(Siswa $siswa)
     {
         $nilai = Nilai::where('siswa_id', $siswa->id)->first();
+        $kelas = Mengajar::where('kelas_id', $siswa->kelas_id)->first();
 
         if ($nilai) {
-            return back()->with('error', "$siswa->nama_siswa masih digunakan di menu Nilai");
+            return back()->with('error', "$siswa->nama_siswa Masih Digunakan di Menu Nilai");
+        }
+
+        if ($kelas) {
+            return back()->with('error', "$siswa->nama_siswa Masih Menggunakan Kelas di Menu Mengajar");
         }
 
         $siswa->delete();
-        return back()->with('success', "Data Siswa Berhasil di Hapus");
+        return back()->with('success', "Data Siswa Berhasil Dihapus");
     }
 }

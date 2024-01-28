@@ -29,7 +29,8 @@ class IndexController extends Controller
 
         session([
             'role' => 'admin',
-            'id_admin' => $administrator->id_admin
+            'nama' => 'Admin',
+            'id' => $administrator->id
         ]);
 
         return redirect('/home');
@@ -45,7 +46,7 @@ class IndexController extends Controller
 
         session([
             'role' => 'guru',
-            'nama_guru' => $guru->nama_guru,
+            'nama' => $guru->nama_guru,
             'id' => $guru->id
         ]);
 
@@ -62,7 +63,7 @@ class IndexController extends Controller
 
         session([
             'role' => 'siswa',
-            'nama_siswa' => $siswa->nama_siswa,
+            'nama' => $siswa->nama_siswa,
             'id' => $siswa->id
         ]);
 

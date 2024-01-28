@@ -41,7 +41,7 @@ class MengajarController extends Controller
             return back()->with('error', 'Data Mengajar Yang Dimasukkan Sudah Ada');
         } else {
             Mengajar::create($data_mengajar);
-            return redirect('/mengajar/index')->with('success', 'Data Mengajar Berhasil di Tambah');
+            return redirect('/mengajar/index')->with('success', 'Data Mengajar Berhasil Ditambah');
         }
     }
 
@@ -71,7 +71,7 @@ class MengajarController extends Controller
             }
         }
         $mengajar->update($data_mengajar);
-        return redirect('/mengajar/index')->with('success', 'Data Mengajar Berhasil di Ubah');
+        return redirect('/mengajar/index')->with('success', 'Data Mengajar Berhasil Diubah');
     }
 
     public function destroy(Mengajar $mengajar)
@@ -83,6 +83,6 @@ class MengajarController extends Controller
         }
 
         $mengajar->delete();
-        return back()->with('success', "Data Mengajar Berhasil di Hapus");
+        return back()->with('success', "Data Mengajar Berhasil Dihapus");
     }
 }

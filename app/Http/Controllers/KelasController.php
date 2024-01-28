@@ -40,7 +40,7 @@ class KelasController extends Controller
             return back()->with('error', 'Data Kelas Yang Dimasukkan Sudah Ada');
         } else {
             $kelas->save();
-            return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil di Tambah');
+            return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil Ditambah');
         }
     }
 
@@ -67,11 +67,11 @@ class KelasController extends Controller
             $cek_kelas = Kelas::where('kelas', $request->kelas)->where('jurusan', $request->jurusan)->where('rombel', $request->rombel)->first();
 
             if ($cek_kelas) {
-                return back()->with('error', 'Data Kelas yang dimasukkan sudah ada');
+                return back()->with('error', 'Data Kelas Yang Dimasukkan Sudah Ada');
             }
         }
         $kelas->update($data_kelas);
-        return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil di Ubah');
+        return redirect('/kelas/index')->with('success', 'Data Kelas Berhasil Diubah');
     }
 
     public function destroy(Kelas $kelas)
@@ -82,15 +82,15 @@ class KelasController extends Controller
         $kelas_dipakai = "$kelas->kelas $kelas->jurusan $kelas->rombel";
 
         if ($siswa) {
-            return back()->with('error', "$kelas_dipakai masih digunakan di menu Siswa");
+            return back()->with('error', "$kelas_dipakai Masih Digunakan di Menu Siswa");
         }
 
         if ($mengajar) {
-            return back()->with('error', "$kelas_dipakai masih digunakan di menu Mengajar");
+            return back()->with('error', "$kelas_dipakai Masih Digunakan di Menu Mengajar");
         }
 
         $kelas->delete();
 
-        return back()->with('success', "Data Kelas Berhasil Di Hapus");
+        return back()->with('success', "Data Kelas Berhasil Dihapus");
     }
 }

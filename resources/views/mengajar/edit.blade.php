@@ -12,33 +12,27 @@
             <label for="guru_id">Guru</label>
             <select name="guru_id" id="guru_id">
                 @foreach ($guru as $g)
-                    @if ($mengajar->guru_id == $g->id)
-                        <option value="{{ $g->id }}" selected>{{ $g->nama_guru }}</option>
-                    @else
-                        <option value="{{ $g->id }}">{{ $g->nama_guru }}</option>
-                    @endif
+                    <option value="{{ $g->id }}" @if ($mengajar->guru_id == $g->id) selected @endif>
+                        {{ $g->nama_guru }}
+                    </option>
                 @endforeach
             </select>
 
             <label for="mapel_id">Mata Pelajaran</label>
             <select name="mapel_id" id="mapel_id">
                 @foreach ($mapel as $m)
-                    @if ($mengajar->mapel_id == $m->id)
-                        <option value="{{ $m->id }}" selected>{{ $m->nama_mapel }}</option>
-                    @else
-                        <option value="{{ $m->id }}">{{ $m->nama_mapel }}</option>
-                    @endif
+                    <option value="{{ $m->id }}" @if ($mengajar->mapel_id == $m->id) selected @endif>
+                        {{ $m->nama_mapel }}
+                    </option>
                 @endforeach
             </select>
 
             <label for="kelas_id">Kelas</label>
             <select name="kelas_id" id="kelas_id">
                 @foreach ($kelas as $k)
-                    @if ($mengajar->kelas_id == $k->id)
-                        <option value="{{ $k->id }}" selected>{{ $k->kelas }} {{ $k->jurusan }} {{ $k->rombel }}</option>
-                    @else
-                        <option value="{{ $k->id }}">{{ $k->kelas }} {{ $k->jurusan }} {{ $k->rombel }}</option>
-                    @endif
+                    <option value="{{ $k->id }}" @if ($mengajar->kelas_id == $k->id) selected @endif>
+                        {{ $k->kelas }} {{ $k->jurusan }} {{ $k->rombel }}
+                    </option>
                 @endforeach
             </select>
 

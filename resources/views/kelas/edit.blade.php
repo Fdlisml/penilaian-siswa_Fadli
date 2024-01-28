@@ -9,33 +9,27 @@
 
         <form action="/kelas/update/{{ $kelas->id }}" method="post">
             @csrf
-            <tr>
-                <label for="kelas">Kelas</label>
-                <select name="kelas" id="kelas">
-                    @foreach ($tingkat_kelas as $k)
-                        @if ($kelas->kelas == $k)
-                            <option value="{{ $k }}" selected>{{ $k }}</option>
-                        @else
-                            <option value="{{ $k }}">{{ $k }}</option>
-                        @endif
-                    @endforeach
-                </select>
+            <label for="kelas">Kelas</label>
+            <select name="kelas" id="kelas">
+                @foreach ($tingkat_kelas as $k)
+                    <option value="{{ $k }}" @if ($kelas->kelas == $k) selected @endif>
+                        {{ $k }}
+                    </option>
+                @endforeach
+            </select>
 
-                <label for="jurusan">Jurusan</label>
-                <select name="jurusan" id="jurusan">
-                    @foreach ($jurusan as $j)
-                        @if ($kelas->jurusan == $j)
-                            <option value="{{ $j }}" selected>{{ $j }}</option>
-                        @else
-                            <option value="{{ $j }}">{{ $j }}</option>
-                        @endif
-                    @endforeach
-                </select>
+            <label for="jurusan">Jurusan</label>
+            <select name="jurusan" id="jurusan">
+                @foreach ($jurusan as $j)
+                    <option value="{{ $j }}" @if ($kelas->jurusan == $j) selected @endif>
+                        {{ $j }}
+                    </option>
+                @endforeach
+            </select>
 
-                <label for="rombel">Rombel</label>
-                <input type="number" name="rombel" max="3" min="1" value="{{ $kelas->rombel }}"
-                    id="rombel">
-                <button class="button-submit" type="submit">Ubah</button>
+            <label for="rombel">Rombel</label>
+            <input type="number" name="rombel" max="3" min="1" value="{{ $kelas->rombel }}" id="rombel">
+            <button class="button-submit" type="submit">Ubah</button>
         </form>
     </div>
 @endsection

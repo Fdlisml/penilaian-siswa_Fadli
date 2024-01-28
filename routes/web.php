@@ -19,7 +19,6 @@ use App\Http\Controllers\NilaiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', [IndexController::class, 'home']);
 
 Route::controller(IndexController::class)->group(function () {
    Route::get('/', 'index');
@@ -27,7 +26,7 @@ Route::controller(IndexController::class)->group(function () {
    Route::post('/login_guru', 'loginGuru');
    Route::post('/login_siswa', 'loginSiswa');
    Route::get('/logout', 'logout');
-   Route::get('/home', 'home');
+   Route::get('/home', 'home')->middleware('CheckUserRole:admin,guru,siswa');
 });
 
 Route::middleware('CheckUserRole:admin')->group(function () {

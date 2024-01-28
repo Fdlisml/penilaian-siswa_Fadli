@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Mapel;
 use App\Models\Mengajar;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class MapelController extends Controller
 {
@@ -28,7 +27,7 @@ class MapelController extends Controller
         ]);
 
         Mapel::create($data_mapel);
-        return redirect('/mapel/index')->with('success', 'Data Mata Pelajaran Berhasil di Tambah');
+        return redirect('/mapel/index')->with('success', 'Data Mata Pelajaran Berhasil Ditambah');
     }
     
     public function edit(Mapel $mapel)
@@ -41,11 +40,11 @@ class MapelController extends Controller
     public function update(Request $request, Mapel $mapel)
     {
         $data_mapel = $request->validate([
-            'nama_mapel' => ['required', Rule::unique('mapels')->ignore($mapel->id)]
+            'nama_mapel' => ['required', 'unique:mapels,nama_mapel,'.$mapel->id]
         ]);
 
         $mapel->update($data_mapel);
-        return redirect('/mapel/index')->with('success', 'Data Mata Pelajaran Berhasil di Ubah');
+        return redirect('/mapel/index')->with('success', 'Data Mata Pelajaran Berhasil Diubah');
     }
     
     public function destroy(Mapel $mapel)
@@ -53,10 +52,10 @@ class MapelController extends Controller
         $mengajar = Mengajar::where('mapel_id', $mapel->id)->first();
 
         if($mengajar){
-            return back()->with('error', "$mapel->nama_mapel masih digunakan di menu mengajar");
+            return back()->with('error', "$mapel->nama_mapel Masih Digunakan di Menu mengajar");
         }
 
         $mapel->delete();
-        return back()->with('success', "Data Mata Pelajaran berhasil di Hapus");
+        return back()->with('success', "Data Mata Pelajaran Berhasil Dihapus");
     }
 }
